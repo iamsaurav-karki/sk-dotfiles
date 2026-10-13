@@ -1,0 +1,213 @@
+# ============================================================
+# ALACRITTY — ARCH LINUX / DEVOPS
+# Dark Glass / Transparent Terminal
+# ============================================================
+
+# ------------------------------------------------------------
+# GENERAL
+# ------------------------------------------------------------
+
+general.live_config_reload = true
+
+# ------------------------------------------------------------
+# WINDOW
+# ------------------------------------------------------------
+
+[window]
+
+# Dark transparent glass effect
+opacity = 0.72
+
+# Terminal padding
+padding = { x = 12, y = 10 }
+
+# Keep padding balanced
+dynamic_padding = true
+
+# Dark window decorations
+decorations_theme_variant = "Dark"
+
+# Normal startup
+startup_mode = "Windowed"
+
+# Allow applications to change terminal title
+dynamic_title = true
+
+# ------------------------------------------------------------
+# SCROLLING
+# ------------------------------------------------------------
+
+[scrolling]
+
+# Huge history — useful for:
+# docker logs
+# kubectl logs
+# terraform output
+# journalctl
+# build output
+history = 100000
+
+# Mouse wheel speed
+multiplier = 3
+
+# ------------------------------------------------------------
+# FONT
+# ------------------------------------------------------------
+
+[font]
+
+normal = { family = "CaskaydiaMono  Nerd Font Mono", style = "Regular" }
+bold = { family = "CaskaydiaMono  Nerd Font Mono", style = "Bold" }
+italic = { family = "CaskaydiaMono  Nerd Font Mono", style = "Italic" }
+
+# Comfortable DevOps CLI size
+size = 12.0
+
+# Slight vertical breathing room
+[font.offset]
+x = 0
+y = 1
+
+# ------------------------------------------------------------
+# CURSOR
+# ------------------------------------------------------------
+
+[cursor]
+
+style = { shape = "Beam", blinking = "On" }
+
+# ------------------------------------------------------------
+# SELECTION
+# ------------------------------------------------------------
+
+[selection]
+
+# Automatically copy selected text
+save_to_clipboard = true
+
+# Characters treated as part of words
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+# ------------------------------------------------------------
+# COLORS
+# Dark GitHub / DevOps inspired palette
+# ------------------------------------------------------------
+
+[colors]
+
+# Make bold text slightly brighter
+draw_bold_text_with_bright_colors = true
+
+# ------------------------------------------------------------
+# PRIMARY
+# ------------------------------------------------------------
+
+[colors.primary]
+
+# Almost black — important for the glass effect
+# background = "0x05070A"
+# 
+# # Soft white instead of pure white
+# foreground = "0xC9D1D9"
+foreground = "#33ff33"
+background = "#000000"
+
+# ------------------------------------------------------------
+# NORMAL COLORS
+# ------------------------------------------------------------
+
+[colors.normal]
+
+black   = "0x161B22"
+red     = "0xFF7B72"
+green   = "0x7EE787"
+yellow  = "0xD29922"
+blue    = "0x79C0FF"
+magenta = "0xD2A8FF"
+cyan    = "0x56D4DD"
+white   = "0xC9D1D9"
+
+# ------------------------------------------------------------
+# BRIGHT COLORS
+# ------------------------------------------------------------
+
+[colors.bright]
+
+black   = "0x30363D"
+red     = "0xFFA198"
+green   = "0x56D364"
+yellow  = "0xE3B341"
+blue    = "0xA5D6FF"
+magenta = "0xD8B4FE"
+cyan    = "0x8BFAFF"
+white   = "0xF0F6FC"
+
+# ------------------------------------------------------------
+# ENVIRONMENT
+# ------------------------------------------------------------
+
+[env]
+
+TERM = "xterm-256color"
+
+# ------------------------------------------------------------
+# KEYBOARD
+# ------------------------------------------------------------
+
+# Copy
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+# Paste
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+# New Alacritty window
+[[keyboard.bindings]]
+key = "N"
+mods = "Control|Shift"
+action = "CreateNewWindow"
+
+# Search forward
+[[keyboard.bindings]]
+key = "F"
+mods = "Control|Shift"
+action = "SearchForward"
+
+# Search backward
+[[keyboard.bindings]]
+key = "B"
+mods = "Control|Shift"
+action = "SearchBackward"
+
+# Clear terminal scrollback
+[[keyboard.bindings]]
+key = "K"
+mods = "Control|Shift"
+action = "ClearHistory"
+
+# ------------------------------------------------------------
+# URL / HINTS
+# ------------------------------------------------------------
+
+[hints]
+
+[[hints.enabled]]
+
+# Detect URLs
+hyperlinks = true
+
+# Keep detected URL available
+persist = false
+
+# Copy detected URL
+action = "Copy"
+
+# Ctrl + Shift + U
+binding = { key = "U", mods = "Control|Shift" }
+
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https?:|file:|git:|ssh:|ftp:)[^\\u0000-\\u001F\\u007F-\\u009F<>\"\\s\\x7f-\\x9f()]+"
